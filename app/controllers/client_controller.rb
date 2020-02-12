@@ -27,6 +27,15 @@ class ClientController < ApplicationController
         end
     end
 
+    def validate
+        client = get_current_client
+        if client
+            render json: { status: "success", email: client.email, token: issue_token({ id: client.id })}
+        else
+            render json: { error: "You are not authorized to view this page." }, status: 401
+        end
+    end
+
     private
 
     def client_params

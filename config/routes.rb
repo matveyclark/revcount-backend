@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   post '/register' => 'client#create'
   get '/client/:id' => 'client#show'
   post '/login' => 'client#login'
+  get '/validate' => 'client#validate'
 end
