@@ -827,3 +827,112 @@ Processing by ProjectManagerController#validate as */*
 Completed 401 Unauthorized in 58ms (Views: 4.7ms | ActiveRecord: 4.1ms)
 
 
+Started POST "/register" for 127.0.0.1 at 2020-02-12 17:01:17 +0000
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/matthew/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Processing by ClientController#create as */*
+  Parameters: {"client"=>{"email"=>"testing@client.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/client_controller.rb:5
+  [1m[36mClient Create (1.1ms)[0m  [1m[32mINSERT INTO "clients" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "testing@client.com"], ["password_digest", "$2a$12$17f1sS177wNTN6QUwv1Mv.kyl2YWCTLv3wepRw/WZdanRkODLScWa"], ["created_at", "2020-02-12 17:01:18.027879"], ["updated_at", "2020-02-12 17:01:18.027879"]]
+  ↳ app/controllers/client_controller.rb:5
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/client_controller.rb:5
+Completed 201 Created in 284ms (Views: 0.6ms | ActiveRecord: 8.3ms)
+
+
+Started POST "/register" for 127.0.0.1 at 2020-02-12 17:01:33 +0000
+Processing by ClientController#create as */*
+  Parameters: {"client"=>{"email"=>"testing@client.com", "password"=>"[FILTERED]", "hacher"=>"hack"}}
+Unpermitted parameter: :hacher
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/client_controller.rb:5
+  [1m[36mClient Create (0.4ms)[0m  [1m[32mINSERT INTO "clients" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "testing@client.com"], ["password_digest", "$2a$12$P/hFW8oaOIrAHU73Q5jGJONHz87JQ7qiHr8EMVtZdLhXw8x.JV0.S"], ["created_at", "2020-02-12 17:01:34.141087"], ["updated_at", "2020-02-12 17:01:34.141087"]]
+  ↳ app/controllers/client_controller.rb:5
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/client_controller.rb:5
+Completed 201 Created in 275ms (Views: 0.4ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/register" for 127.0.0.1 at 2020-02-12 17:02:08 +0000
+Processing by ClientController#create as */*
+  Parameters: {"client"=>{"email"=>"testing@client.com", "password"=>"[FILTERED]", "first_name"=>"testing", "last_name"=>"test"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/client_controller.rb:5
+  [1m[36mClient Create (0.6ms)[0m  [1m[32mINSERT INTO "clients" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "testing"], ["last_name", "test"], ["email", "testing@client.com"], ["password_digest", "$2a$12$JRy/ToW6.uD.r6ZlZF5ye.Ti2ccARa9V.yg1iVTqFaHnw8bKSAqC."], ["created_at", "2020-02-12 17:02:09.238281"], ["updated_at", "2020-02-12 17:02:09.238281"]]
+  ↳ app/controllers/client_controller.rb:5
+  [1m[35m (3.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/client_controller.rb:5
+Completed 201 Created in 280ms (Views: 0.5ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/client/1" for 127.0.0.1 at 2020-02-12 17:04:09 +0000
+  
+ArgumentError ('/client' is not a supported controller name. This can lead to potential routing problems. See http://guides.rubyonrails.org/routing.html#specifying-a-controller-to-use):
+  
+config/routes.rb:12:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/client/1" for 127.0.0.1 at 2020-02-12 17:04:30 +0000
+Processing by ClientController#show as */*
+  Parameters: {"client"=>{"email"=>"testing@client.com", "password"=>"[FILTERED]", "first_name"=>"testing", "last_name"=>"test"}, "id"=>"1"}
+  [1m[36mClient Load (0.8ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/client_controller.rb:13
+Completed 200 OK in 32ms (Views: 0.5ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/client/6" for 127.0.0.1 at 2020-02-12 17:04:34 +0000
+Processing by ClientController#show as */*
+  Parameters: {"client"=>{"email"=>"testing@client.com", "password"=>"[FILTERED]", "first_name"=>"testing", "last_name"=>"test"}, "id"=>"6"}
+  [1m[36mClient Load (0.7ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/client_controller.rb:13
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/client/7" for 127.0.0.1 at 2020-02-12 17:04:37 +0000
+Processing by ClientController#show as */*
+  Parameters: {"client"=>{"email"=>"testing@client.com", "password"=>"[FILTERED]", "first_name"=>"testing", "last_name"=>"test"}, "id"=>"7"}
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/client_controller.rb:13
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/client/6" for 127.0.0.1 at 2020-02-12 17:04:40 +0000
+Processing by ClientController#show as */*
+  Parameters: {"client"=>{"email"=>"testing@client.com", "password"=>"[FILTERED]", "first_name"=>"testing", "last_name"=>"test"}, "id"=>"6"}
+  [1m[36mClient Load (3.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/client_controller.rb:13
+Completed 200 OK in 5ms (Views: 0.6ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-02-12 17:08:33 +0000
+Processing by ClientController#login as */*
+  Parameters: {"client"=>{"email"=>"testing@client.com", "password"=>"[FILTERED]"}}
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/client_controller.rb:22
+Completed 401 Unauthorized in 6ms (Views: 0.2ms | ActiveRecord: 2.7ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-02-12 17:09:03 +0000
+Processing by ClientController#login as */*
+  Parameters: {"client"=>{"email"=>"testing@client.com", "password"=>"[FILTERED]"}}
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."email" = $1 LIMIT $2[0m  [["email", "testing@client.com"], ["LIMIT", 1]]
+  ↳ app/controllers/client_controller.rb:22
+Completed 200 OK in 282ms (Views: 0.2ms | ActiveRecord: 5.8ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-02-12 17:09:13 +0000
+Processing by ClientController#login as */*
+  Parameters: {"client"=>{"email"=>"testing@client.com", "password"=>"[FILTERED]"}}
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."email" = $1 LIMIT $2[0m  [["email", "testing@client.com"], ["LIMIT", 1]]
+  ↳ app/controllers/client_controller.rb:22
+Completed 401 Unauthorized in 271ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-02-12 17:09:17 +0000
+Processing by ClientController#login as */*
+  Parameters: {"client"=>{"email"=>"testing@client.com", "password"=>"[FILTERED]"}}
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."email" = $1 LIMIT $2[0m  [["email", "testing@client.com"], ["LIMIT", 1]]
+  ↳ app/controllers/client_controller.rb:22
+Completed 200 OK in 273ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
