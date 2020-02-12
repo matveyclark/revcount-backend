@@ -54,3 +54,302 @@ Processing by Rails::WelcomeController#index as HTML
 Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.0ms)
 
 
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE DATABASE "rev-back_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE DATABASE "rev-back_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (19.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1026369620827876605)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateProjectManagers (20200212144034)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE TABLE "project_managers" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "company_name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200212144034_create_project_managers.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200212144034"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateProjects (20200212144041)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE TABLE "projects" ("id" bigserial primary key, "name" character varying, "project_manager_id" integer, "client_id" integer, "status" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200212144041_create_projects.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200212144041"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateClients (20200212144047)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "clients" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200212144047_create_clients.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200212144047"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateRevisions (20200212144057)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "revisions" ("id" bigserial primary key, "project_id" integer, "description" character varying, "status" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200212144057_create_revisions.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200212144057"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateComments (20200212144104)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "revision_id" integer, "content" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200212144104_create_comments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200212144104"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-02-12 14:49:43.422200"], ["updated_at", "2020-02-12 14:49:43.422200"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1026369620827876605)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/matthew/.rvm/gems/ruby-2.6.5/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/matthew/.rvm/gems/ruby-2.6.5/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/matthew/.rvm/gems/ruby-2.6.5/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/matthew/.rvm/gems/ruby-2.6.5/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/matthew/.rvm/gems/ruby-2.6.5/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/matthew/.rvm/gems/ruby-2.6.5/bin/rake:23
+  [1m[35m (34.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "rev-back_development"[0m
+  ↳ /Users/matthew/.rvm/gems/ruby-2.6.5/bin/rake:23
+  [1m[35m (50.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "rev-back_test"[0m
+  ↳ /Users/matthew/.rvm/gems/ruby-2.6.5/bin/rake:23
+  [1m[35m (75.6ms)[0m  [1m[35mCREATE DATABASE "rev-back_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (67.4ms)[0m  [1m[35mCREATE DATABASE "rev-back_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE DATABASE "rev-back_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE DATABASE "rev-back_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1026369620827876605)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateProjectManagers (20200212144034)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "project_managers" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "company_name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200212144034_create_project_managers.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200212144034"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateProjects (20200212144041)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "projects" ("id" bigserial primary key, "name" character varying, "max_revisions" integer, "project_manager_id" integer, "client_id" integer, "status" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200212144041_create_projects.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200212144041"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateClients (20200212144047)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE TABLE "clients" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200212144047_create_clients.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200212144047"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateRevisions (20200212144057)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "revisions" ("id" bigserial primary key, "project_id" integer, "description" character varying, "status" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200212144057_create_revisions.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200212144057"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateComments (20200212144104)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "revision_id" integer, "content" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200212144104_create_comments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200212144104"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-02-12 15:00:15.060502"], ["updated_at", "2020-02-12 15:00:15.060502"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1026369620827876605)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mClient Create (1.1ms)[0m  [1m[32mINSERT INTO "clients" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "John"], ["last_name", "Doe"], ["email", "johndoe@gmail.com"], ["password_digest", "$2a$12$.TWfgmV/o.H/DBKDqnByReTLyB.2IwXbkaF4UO.khSEkTWCTzkSeC"], ["created_at", "2020-02-12 15:07:19.398041"], ["updated_at", "2020-02-12 15:07:19.398041"]]
+  ↳ db/seeds.rb:8
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mClient Create (0.3ms)[0m  [1m[32mINSERT INTO "clients" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Sergey"], ["last_name", "Dmitriev"], ["email", "sergey.dmitrievb@gmail.com"], ["password_digest", "$2a$12$cgsaQa9kPQAs2/zR4UWLNu9wpqLI2nT7.0PQGpormyxpJCWBAp3Da"], ["created_at", "2020-02-12 15:07:19.651261"], ["updated_at", "2020-02-12 15:07:19.651261"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mClient Create (0.4ms)[0m  [1m[32mINSERT INTO "clients" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Liza"], ["last_name", "Galminas"], ["email", "liza.galmias@gmail.com"], ["password_digest", "$2a$12$oD3uGyYu5XIacN267Td7iuBjG.efGuu4jKoryOWJL6uXOHRD5hvUS"], ["created_at", "2020-02-12 15:07:19.904907"], ["updated_at", "2020-02-12 15:07:19.904907"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mProjectManager Create (0.7ms)[0m  [1m[32mINSERT INTO "project_managers" ("first_name", "last_name", "email", "password_digest", "company_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Adam"], ["last_name", "Graham"], ["email", "adamg@gmail.com"], ["password_digest", "$2a$12$HCepwZKVdrh9RS5OCXlblu4mFh6hsXJR8tSJYTxH1cw4wRwuFwF3m"], ["company_name", "Gray Matters"], ["created_at", "2020-02-12 15:07:20.169887"], ["updated_at", "2020-02-12 15:07:20.169887"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mProjectManager Create (0.4ms)[0m  [1m[32mINSERT INTO "project_managers" ("first_name", "last_name", "email", "password_digest", "company_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Matthew"], ["last_name", "Clark"], ["email", "matthew.97.clark@gmail.com"], ["password_digest", "$2a$12$euvRQf13ywcrZAabMk1pFuLPsIU.WZlETmkGTMzn4XFhSEhjqQtMG"], ["company_name", "State of Mind"], ["created_at", "2020-02-12 15:07:20.422537"], ["updated_at", "2020-02-12 15:07:20.422537"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:14
+  [1m[36mProjectManager Create (0.4ms)[0m  [1m[32mINSERT INTO "project_managers" ("first_name", "last_name", "email", "password_digest", "company_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "John"], ["last_name", "Fineman"], ["email", "jhonfineman@mattr.com"], ["password_digest", "$2a$12$DL2ZXxr5H8m62x9NxK3ZR.mPJOjZnwRJTAAtUpITju7q9opLlK7Ny"], ["company_name", "Mattr Media"], ["created_at", "2020-02-12 15:07:20.673661"], ["updated_at", "2020-02-12 15:07:20.673661"]]
+  ↳ db/seeds.rb:14
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:16
+  [1m[36mProject Create (0.7ms)[0m  [1m[32mINSERT INTO "projects" ("name", "max_revisions", "project_manager_id", "client_id", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "New website"], ["max_revisions", 5], ["project_manager_id", 1], ["client_id", 1], ["status", "delivered"], ["created_at", "2020-02-12 15:07:20.698886"], ["updated_at", "2020-02-12 15:07:20.698886"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mProject Create (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("name", "max_revisions", "project_manager_id", "client_id", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "New mobile application"], ["max_revisions", 10], ["project_manager_id", 2], ["client_id", 2], ["status", "in progress"], ["created_at", "2020-02-12 15:07:20.701618"], ["updated_at", "2020-02-12 15:07:20.701618"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:18
+  [1m[36mProject Create (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("name", "max_revisions", "project_manager_id", "client_id", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "rebranding"], ["max_revisions", 15], ["project_manager_id", 3], ["client_id", 3], ["status", "in progress"], ["created_at", "2020-02-12 15:07:20.703462"], ["updated_at", "2020-02-12 15:07:20.703462"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:20
+  [1m[36mRevision Create (0.7ms)[0m  [1m[32mINSERT INTO "revisions" ("project_id", "description", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["project_id", 1], ["description", "Re-design the homepage"], ["status", "completed"], ["created_at", "2020-02-12 15:07:20.716809"], ["updated_at", "2020-02-12 15:07:20.716809"]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:20
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:21
+  [1m[36mRevision Create (0.2ms)[0m  [1m[32mINSERT INTO "revisions" ("project_id", "description", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["project_id", 1], ["description", "Change contact details"], ["status", "in progress"], ["created_at", "2020-02-12 15:07:20.718955"], ["updated_at", "2020-02-12 15:07:20.718955"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:22
+  [1m[36mRevision Create (0.3ms)[0m  [1m[32mINSERT INTO "revisions" ("project_id", "description", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["project_id", 2], ["description", "Make the fonts different everywhere"], ["status", "completed"], ["created_at", "2020-02-12 15:07:20.720547"], ["updated_at", "2020-02-12 15:07:20.720547"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:23
+  [1m[36mRevision Create (0.2ms)[0m  [1m[32mINSERT INTO "revisions" ("project_id", "description", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["project_id", 2], ["description", "Add newsletted signup functionality"], ["status", "in progress"], ["created_at", "2020-02-12 15:07:20.722091"], ["updated_at", "2020-02-12 15:07:20.722091"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRevision Create (0.2ms)[0m  [1m[32mINSERT INTO "revisions" ("project_id", "description", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["project_id", 3], ["description", "redesign the logo fully"], ["status", "in progress"], ["created_at", "2020-02-12 15:07:20.723536"], ["updated_at", "2020-02-12 15:07:20.723536"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mRevision Create (0.2ms)[0m  [1m[32mINSERT INTO "revisions" ("project_id", "description", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["project_id", 3], ["description", "change the color palette"], ["status", "in progress"], ["created_at", "2020-02-12 15:07:20.724937"], ["updated_at", "2020-02-12 15:07:20.724937"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:27
+  [1m[36mComment Create (0.6ms)[0m  [1m[32mINSERT INTO "comments" ("revision_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["revision_id", 1], ["content", "Change the structure"], ["created_at", "2020-02-12 15:07:20.736406"], ["updated_at", "2020-02-12 15:07:20.736406"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:28
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("revision_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["revision_id", 2], ["content", "Here are the details we need changing"], ["created_at", "2020-02-12 15:07:20.738589"], ["updated_at", "2020-02-12 15:07:20.738589"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:29
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("revision_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["revision_id", 3], ["content", "we were thingking more this font..."], ["created_at", "2020-02-12 15:07:20.740262"], ["updated_at", "2020-02-12 15:07:20.740262"]]
+  ↳ db/seeds.rb:29
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:29
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("revision_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["revision_id", 4], ["content", "we use mailchimp as our newsletter service"], ["created_at", "2020-02-12 15:07:20.741787"], ["updated_at", "2020-02-12 15:07:20.741787"]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:31
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("revision_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["revision_id", 5], ["content", "this logo is completely wrong..."], ["created_at", "2020-02-12 15:07:20.743427"], ["updated_at", "2020-02-12 15:07:20.743427"]]
+  ↳ db/seeds.rb:31
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:31
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:32
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("revision_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["revision_id", 6], ["content", "need some more bright colors in the mix"], ["created_at", "2020-02-12 15:07:20.745158"], ["updated_at", "2020-02-12 15:07:20.745158"]]
+  ↳ db/seeds.rb:32
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:32
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mProjectManager Load (0.7ms)[0m  [1m[34mSELECT  "project_managers".* FROM "project_managers" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProjectManager Load (0.3ms)[0m  [1m[34mSELECT  "project_managers".* FROM "project_managers" WHERE "project_managers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRevision Load (0.4ms)[0m  [1m[34mSELECT  "revisions".* FROM "revisions" WHERE "revisions"."project_id" = $1 LIMIT $2[0m  [["project_id", 1], ["LIMIT", 11]]
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRevision Load (0.4ms)[0m  [1m[34mSELECT  "revisions".* FROM "revisions" WHERE "revisions"."project_id" = $1 ORDER BY "revisions"."id" ASC LIMIT $2[0m  [["project_id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."revision_id" = $1 LIMIT $2[0m  [["revision_id", 1], ["LIMIT", 11]]
