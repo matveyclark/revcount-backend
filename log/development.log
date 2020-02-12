@@ -936,3 +936,117 @@ Processing by ClientController#login as */*
 Completed 200 OK in 273ms (Views: 0.2ms | ActiveRecord: 0.4ms)
 
 
+  [1m[36mProjectManager Load (0.9ms)[0m  [1m[34mSELECT  "project_managers".* FROM "project_managers" ORDER BY "project_managers"."id" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 1], ["OFFSET", 1]]
+Started POST "/projects/pm" for 127.0.0.1 at 2020-02-12 19:13:12 +0000
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/matthew/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  
+ActionController::RoutingError (No route matches [POST] "/projects/pm"):
+  
+actionpack (5.2.4.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.4.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.4.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.2) lib/puma/configuration.rb:227:in `call'
+puma (3.12.2) lib/puma/server.rb:674:in `handle_request'
+puma (3.12.2) lib/puma/server.rb:476:in `process_client'
+puma (3.12.2) lib/puma/server.rb:334:in `block in run'
+puma (3.12.2) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/login/pm" for 127.0.0.1 at 2020-02-12 19:13:23 +0000
+Processing by ProjectManagerController#login as */*
+  Parameters: {"project_manager"=>{"email"=>"matthew.97.clark@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mProjectManager Load (0.5ms)[0m  [1m[34mSELECT  "project_managers".* FROM "project_managers" WHERE "project_managers"."email" = $1 LIMIT $2[0m  [["email", "matthew.97.clark@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/project_manager_controller.rb:22
+Completed 200 OK in 283ms (Views: 0.2ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/projects/pm" for 127.0.0.1 at 2020-02-12 19:13:41 +0000
+Processing by ProjectManagerController#projects as */*
+  Parameters: {"project_manager"=>{"email"=>"matthew.97.clark@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mProjectManager Load (0.3ms)[0m  [1m[34mSELECT  "project_managers".* FROM "project_managers" WHERE "project_managers"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/projects/pm" for 127.0.0.1 at 2020-02-12 19:13:44 +0000
+Processing by ProjectManagerController#projects as */*
+  Parameters: {"project_manager"=>{"email"=>"matthew.97.clark@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mProjectManager Load (0.9ms)[0m  [1m[34mSELECT  "project_managers".* FROM "project_managers" WHERE "project_managers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mProject Load (0.8ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."project_manager_id" = $1[0m  [["project_manager_id", 2]]
+  ↳ app/controllers/project_manager_controller.rb:33
+Completed 200 OK in 40ms (Views: 12.1ms | ActiveRecord: 6.7ms)
+
+
+  [1m[36mProjectManager Load (0.5ms)[0m  [1m[34mSELECT  "project_managers".* FROM "project_managers" ORDER BY "project_managers"."id" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."project_manager_id" = $1 LIMIT $2[0m  [["project_manager_id", 2], ["LIMIT", 11]]
+Started GET "/client/pm" for 127.0.0.1 at 2020-02-12 19:16:56 +0000
+Processing by ClientController#show as */*
+  Parameters: {"project_manager"=>{"email"=>"matthew.97.clark@gmail.com", "password"=>"[FILTERED]"}, "id"=>"pm", "client"=>{}}
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/client_controller.rb:13
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/clients/pm" for 127.0.0.1 at 2020-02-12 19:17:00 +0000
+Processing by ProjectManagerController#clients as */*
+  Parameters: {"project_manager"=>{"email"=>"matthew.97.clark@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mProjectManager Load (0.3ms)[0m  [1m[34mSELECT  "project_managers".* FROM "project_managers" WHERE "project_managers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mClient Load (0.7ms)[0m  [1m[34mSELECT "clients".* FROM "clients" INNER JOIN "projects" ON "clients"."id" = "projects"."client_id" WHERE "projects"."project_manager_id" = $1[0m  [["project_manager_id", 2]]
+  ↳ app/controllers/project_manager_controller.rb:42
+Completed 200 OK in 41ms (Views: 16.1ms | ActiveRecord: 10.1ms)
+
+
+Started GET "/clients/pm" for 127.0.0.1 at 2020-02-12 19:17:33 +0000
+Processing by ProjectManagerController#clients as */*
+  Parameters: {"project_manager"=>{"email"=>"matthew.97.clark@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mProjectManager Load (0.5ms)[0m  [1m[34mSELECT  "project_managers".* FROM "project_managers" WHERE "project_managers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT "clients".* FROM "clients" INNER JOIN "projects" ON "clients"."id" = "projects"."client_id" WHERE "projects"."project_manager_id" = $1[0m  [["project_manager_id", 2]]
+  ↳ app/controllers/project_manager_controller.rb:42
+Completed 200 OK in 39ms (Views: 8.8ms | ActiveRecord: 15.3ms)
+
+
+Started GET "/clients/pm" for 127.0.0.1 at 2020-02-12 19:17:34 +0000
+Processing by ProjectManagerController#clients as */*
+  Parameters: {"project_manager"=>{"email"=>"matthew.97.clark@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mProjectManager Load (0.4ms)[0m  [1m[34mSELECT  "project_managers".* FROM "project_managers" WHERE "project_managers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT "clients".* FROM "clients" INNER JOIN "projects" ON "clients"."id" = "projects"."client_id" WHERE "projects"."project_manager_id" = $1[0m  [["project_manager_id", 2]]
+  ↳ app/controllers/project_manager_controller.rb:42
+Completed 200 OK in 4ms (Views: 1.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/clients/pm" for 127.0.0.1 at 2020-02-12 19:18:26 +0000
+Processing by ProjectManagerController#clients as */*
+  Parameters: {"project_manager"=>{"email"=>"matthew.97.clark@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mProjectManager Load (0.3ms)[0m  [1m[34mSELECT  "project_managers".* FROM "project_managers" WHERE "project_managers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT "clients".* FROM "clients" INNER JOIN "projects" ON "clients"."id" = "projects"."client_id" WHERE "projects"."project_manager_id" = $1[0m  [["project_manager_id", 2]]
+  ↳ app/controllers/project_manager_controller.rb:42
+Completed 200 OK in 49ms (Views: 8.2ms | ActiveRecord: 12.6ms)
+
+
+Started GET "/clients/pm" for 127.0.0.1 at 2020-02-12 19:18:52 +0000
+Processing by ProjectManagerController#clients as */*
+  Parameters: {"project_manager"=>{"email"=>"matthew.97.clark@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mProjectManager Load (0.3ms)[0m  [1m[34mSELECT  "project_managers".* FROM "project_managers" WHERE "project_managers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT "clients".* FROM "clients" INNER JOIN "projects" ON "clients"."id" = "projects"."client_id" WHERE "projects"."project_manager_id" = $1[0m  [["project_manager_id", 2]]
+  ↳ app/controllers/project_manager_controller.rb:42
+Completed 200 OK in 34ms (Views: 8.1ms | ActiveRecord: 12.3ms)
+
+

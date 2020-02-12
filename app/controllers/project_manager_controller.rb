@@ -27,6 +27,24 @@ class ProjectManagerController < ApplicationController
         end
     end
 
+    def projects
+        project_manager = get_current_project_manager
+        if project_manager
+            render json: project_manager.projects, status: 200
+        else
+            render json: { error: "You are not authorized to view this page. Please log in."}, status: 401
+        end
+    end
+
+    def clients
+        project_manager = get_current_project_manager
+        if project_manager
+            render json: project_manager.clients, :except => [:password_digest, :created_at, :updated_at], status: 200
+        else
+            render json: { error: "You are not authorized to view this page. Please log in."}, status: 401
+        end
+    end
+
     def validate
         project_manager = get_current_project_manager
         if project_manager
