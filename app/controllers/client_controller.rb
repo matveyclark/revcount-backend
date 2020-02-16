@@ -27,6 +27,15 @@ class ClientController < ApplicationController
         end
     end
 
+    def projects
+        client = get_current_client
+        if client 
+            render json: client.projects, status: 200
+        else
+            render json: { error: "You are not authorized to view this page. Please log in."}, status: 401
+        end 
+    end
+
     def validate
         client = get_current_client
         if client

@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   get '/client/:id' => 'client#show'
   post '/login' => 'client#login'
   get '/validate' => 'client#validate'
+  get '/projects' => 'client#projects'
 
   # Project routes
+  get '/project/revisions' => 'project#revisions'
   
 end
