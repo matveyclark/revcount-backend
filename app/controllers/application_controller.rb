@@ -1,5 +1,23 @@
 class ApplicationController < ActionController::API
 
+    def validate
+        if decoded_token["user_type"] == 'client'
+            client = get_current_client
+            if client
+                render json: { status: "success", email: client.email, user_type: 'client', token: issue_token({ id: client.id, user_type: 'client' })}
+            else
+                render json: { error: "You are not authorized to view this page." }, status: 401
+            end
+        else 
+            project_manager = get_current_project_manager
+            if project_manager
+                render json: { status: "success", email: project_manager.email, user_type: 'pm', token: issue_token({ id: project_manager.id, user_type: 'pm' })}, status: 200
+            else
+                render json: { error: "You are not authorized to view this page. Please log in." }, status: 401
+            end
+        end
+    end
+
     def get_current_client
         id = decoded_token['id']
         Client.find_by(id: id)

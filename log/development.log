@@ -4169,3 +4169,917 @@ Processing by ProjectManagerController#create as JSON
 Completed 201 Created in 269ms (Views: 0.4ms | ActiveRecord: 8.7ms)
 
 
+Started GET "/validate" for ::1 at 2020-02-18 11:10:11 +0000
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/matthew/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Processing by ClientController#validate as */*
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 23ms (Views: 0.2ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 11:17:53 +0000
+Processing by ClientController#validate as */*
+  [1m[36mClient Load (1.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 11:18:01 +0000
+Processing by ClientController#validate as */*
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/register/pm" for ::1 at 2020-02-18 11:19:23 +0000
+Processing by ProjectManagerController#create as JSON
+  Parameters: {"project_manager"=>{"first_name"=>"test", "last_name"=>"test", "email"=>"test@gmail.com", "password"=>"[FILTERED]", "company_name"=>"test"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/project_manager_controller.rb:5
+  [1m[36mProjectManager Create (0.8ms)[0m  [1m[32mINSERT INTO "project_managers" ("first_name", "last_name", "email", "password_digest", "company_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "test"], ["last_name", "test"], ["email", "test@gmail.com"], ["password_digest", "$2a$12$v/7hloIvdrypNOYiTeTrmeunED8KXI2T3CtKJm7Mr3s44TgcjTKfe"], ["company_name", "test"], ["created_at", "2020-02-18 11:19:23.429826"], ["updated_at", "2020-02-18 11:19:23.429826"]]
+  ↳ app/controllers/project_manager_controller.rb:5
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/project_manager_controller.rb:5
+Completed 201 Created in 281ms (Views: 0.4ms | ActiveRecord: 12.4ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 11:19:34 +0000
+Processing by ClientController#validate as */*
+  [1m[36mClient Load (5.2ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 11:19:36 +0000
+Processing by ClientController#validate as */*
+  [1m[36mClient Load (0.9ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 11:19:37 +0000
+Processing by ClientController#validate as */*
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/register/pm" for ::1 at 2020-02-18 11:20:17 +0000
+Processing by ProjectManagerController#create as JSON
+  Parameters: {"project_manager"=>{"first_name"=>"projectm", "last_name"=>"projectm", "email"=>"projectm@gmail.com", "password"=>"[FILTERED]", "company_name"=>"projectm"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/project_manager_controller.rb:5
+  [1m[36mProjectManager Create (0.5ms)[0m  [1m[32mINSERT INTO "project_managers" ("first_name", "last_name", "email", "password_digest", "company_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "projectm"], ["last_name", "projectm"], ["email", "projectm@gmail.com"], ["password_digest", "$2a$12$k.awFWtsMRab.nOto6lxSOhs3ztjFIsYA0LKTJmFbEv5Ou5X5YhwC"], ["company_name", "projectm"], ["created_at", "2020-02-18 11:20:18.120088"], ["updated_at", "2020-02-18 11:20:18.120088"]]
+  ↳ app/controllers/project_manager_controller.rb:5
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/project_manager_controller.rb:5
+Completed 201 Created in 261ms (Views: 0.4ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 11:20:24 +0000
+Processing by ClientController#validate as */*
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/register" for ::1 at 2020-02-18 11:23:02 +0000
+Processing by ClientController#create as JSON
+  Parameters: {"client"=>{"first_name"=>"asdasd", "last_name"=>"adsasd", "email"=>"asdasd", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/client_controller.rb:5
+  [1m[36mClient Create (0.5ms)[0m  [1m[32mINSERT INTO "clients" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "asdasd"], ["last_name", "adsasd"], ["email", "asdasd"], ["password_digest", "$2a$12$lXWzXYR64IFVClZAXwWieelfiVE4a.SI6X8VnlqV6Yf3OJE1gtK9G"], ["created_at", "2020-02-18 11:23:02.285023"], ["updated_at", "2020-02-18 11:23:02.285023"]]
+  ↳ app/controllers/client_controller.rb:5
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/client_controller.rb:5
+Completed 201 Created in 260ms (Views: 0.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2020-02-18 11:26:01 +0000
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/matthew/.rvm/gems/ruby-2.6.5/gems/railties-5.2.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/matthew/.rvm/gems/ruby-2.6.5/gems/railties-5.2.4.1/lib/rails/templates/rails/welcome/index.html.erb (2.3ms)
+Completed 200 OK in 8ms (Views: 4.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 11:26:03 +0000
+Processing by ClientController#validate as */*
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 11:30:35 +0000
+Processing by ClientController#validate as */*
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 11:32:39 +0000
+Processing by ClientController#validate as */*
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 11:32:59 +0000
+Processing by ClientController#validate as */*
+  [1m[36mClient Load (0.7ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 11:33:00 +0000
+Processing by ClientController#validate as */*
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 11:34:26 +0000
+Processing by ClientController#validate as */*
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 11:34:36 +0000
+Processing by ClientController#validate as */*
+  [1m[36mClient Load (1.8ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 11:36:07 +0000
+Processing by ClientController#validate as */*
+  [1m[36mClient Load (0.7ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 11:37:51 +0000
+Processing by ClientController#validate as */*
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 11:38:44 +0000
+Processing by ClientController#validate as */*
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 11:38:48 +0000
+Processing by ClientController#validate as */*
+  [1m[36mClient Load (1.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 11:38:49 +0000
+Processing by ClientController#validate as */*
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/register/pm" for ::1 at 2020-02-18 11:41:13 +0000
+Processing by ProjectManagerController#create as JSON
+  Parameters: {"project_manager"=>{"first_name"=>"pm", "last_name"=>"pm", "email"=>"pm", "password"=>"[FILTERED]", "company_name"=>"pm"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/project_manager_controller.rb:5
+  [1m[36mProjectManager Create (0.4ms)[0m  [1m[32mINSERT INTO "project_managers" ("first_name", "last_name", "email", "password_digest", "company_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "pm"], ["last_name", "pm"], ["email", "pm"], ["password_digest", "$2a$12$5bWhzyOZwnXb4vTawkWOSeFhKvhWQjyFKWKopSlUFlMWxWMyDzgU."], ["company_name", "pm"], ["created_at", "2020-02-18 11:41:14.001603"], ["updated_at", "2020-02-18 11:41:14.001603"]]
+  ↳ app/controllers/project_manager_controller.rb:5
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/project_manager_controller.rb:5
+Completed 201 Created in 260ms (Views: 0.4ms | ActiveRecord: 2.7ms)
+
+
+Started POST "/login" for ::1 at 2020-02-18 11:47:41 +0000
+Processing by ClientController#login as JSON
+  Parameters: {"client"=>{"email"=>"johndoe@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."email" = $1 LIMIT $2[0m  [["email", "johndoe@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/client_controller.rb:22
+Completed 200 OK in 255ms (Views: 0.2ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/register" for ::1 at 2020-02-18 11:55:33 +0000
+Processing by ClientController#create as JSON
+  Parameters: {"client"=>{"first_name"=>"test", "last_name"=>"test", "email"=>"test", "password"=>"[FILTERED]"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/client_controller.rb:5
+  [1m[36mClient Create (1.1ms)[0m  [1m[32mINSERT INTO "clients" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "test"], ["last_name", "test"], ["email", "test"], ["password_digest", "$2a$12$bcavxPlRAUfsuYvNUOQP0..R6XCRScPFatpZjXmugH3tsX03PfR36"], ["created_at", "2020-02-18 11:55:33.714755"], ["updated_at", "2020-02-18 11:55:33.714755"]]
+  ↳ app/controllers/client_controller.rb:5
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/client_controller.rb:5
+Completed 201 Created in 259ms (Views: 0.3ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/" for ::1 at 2020-02-18 11:57:06 +0000
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/matthew/.rvm/gems/ruby-2.6.5/gems/railties-5.2.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/matthew/.rvm/gems/ruby-2.6.5/gems/railties-5.2.4.1/lib/rails/templates/rails/welcome/index.html.erb (1.9ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/register" for ::1 at 2020-02-18 11:57:24 +0000
+Processing by ClientController#create as JSON
+  Parameters: {"client"=>{"first_name"=>"asdasd", "last_name"=>"asdasd", "email"=>"asdasd", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/client_controller.rb:5
+  [1m[36mClient Create (0.4ms)[0m  [1m[32mINSERT INTO "clients" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "asdasd"], ["last_name", "asdasd"], ["email", "asdasd"], ["password_digest", "$2a$12$jXaJ7M0B2CenP.SA2g7qCeENcIAhxs60k10HFlk/3pgIBlGDXZW7K"], ["created_at", "2020-02-18 11:57:24.709488"], ["updated_at", "2020-02-18 11:57:24.709488"]]
+  ↳ app/controllers/client_controller.rb:5
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/client_controller.rb:5
+Completed 201 Created in 276ms (Views: 0.3ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 11:58:32 +0000
+Processing by ClientController#validate as */*
+  [1m[36mClient Load (4.8ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 11:58:52 +0000
+Processing by ClientController#validate as */*
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 11:58:59 +0000
+Processing by ClientController#validate as */*
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 11:59:36 +0000
+Processing by ClientController#validate as */*
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 11:59:41 +0000
+Processing by ClientController#validate as */*
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 12:02:58 +0000
+Processing by ClientController#validate as */*
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 12:03:57 +0000
+Processing by ClientController#validate as */*
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 12:04:07 +0000
+Processing by ClientController#validate as */*
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/register/pm" for ::1 at 2020-02-18 12:06:21 +0000
+Processing by ProjectManagerController#create as JSON
+  Parameters: {"project_manager"=>{"first_name"=>"asdasd", "last_name"=>"asasdad", "email"=>"asdasdasd", "password"=>"[FILTERED]", "company_name"=>"asdasdasd"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/project_manager_controller.rb:5
+  [1m[36mProjectManager Create (0.7ms)[0m  [1m[32mINSERT INTO "project_managers" ("first_name", "last_name", "email", "password_digest", "company_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "asdasd"], ["last_name", "asasdad"], ["email", "asdasdasd"], ["password_digest", "$2a$12$RCUaqr9Cp4IAUWfoThrbT.EK14KKBaRU9GH/Ah03Q.CBNPYGdfn36"], ["company_name", "asdasdasd"], ["created_at", "2020-02-18 12:06:21.878320"], ["updated_at", "2020-02-18 12:06:21.878320"]]
+  ↳ app/controllers/project_manager_controller.rb:5
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/project_manager_controller.rb:5
+Completed 201 Created in 265ms (Views: 0.3ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 12:07:20 +0000
+Processing by ClientController#validate as */*
+  [1m[36mClient Load (0.8ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 12:07:28 +0000
+Processing by ClientController#validate as */*
+  [1m[36mClient Load (1.8ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 12:07:31 +0000
+Processing by ClientController#validate as */*
+  [1m[36mClient Load (1.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/register/pm" for ::1 at 2020-02-18 12:07:56 +0000
+Processing by ProjectManagerController#create as JSON
+  Parameters: {"project_manager"=>{"first_name"=>"asdasdasd", "last_name"=>"adasdasd", "email"=>"asdasd", "password"=>"[FILTERED]", "company_name"=>"asdasdads"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/project_manager_controller.rb:5
+  [1m[36mProjectManager Create (0.4ms)[0m  [1m[32mINSERT INTO "project_managers" ("first_name", "last_name", "email", "password_digest", "company_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "asdasdasd"], ["last_name", "adasdasd"], ["email", "asdasd"], ["password_digest", "$2a$12$oF6E39ueHuJAIH2HtUUzD.lUBHEPqdQTPTRvsA1.swPKWlRAcy5Dy"], ["company_name", "asdasdads"], ["created_at", "2020-02-18 12:07:56.838764"], ["updated_at", "2020-02-18 12:07:56.838764"]]
+  ↳ app/controllers/project_manager_controller.rb:5
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/project_manager_controller.rb:5
+Completed 201 Created in 262ms (Views: 0.3ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 12:08:01 +0000
+Processing by ClientController#validate as */*
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 12:09:20 +0000
+Processing by ApplicationController#validate as */*
+Completed 500 Internal Server Error in 173ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `get_current_user' for #<ApplicationController:0x00007fde8c8266e0>
+Did you mean?  get_current_client):
+  
+app/controllers/application_controller.rb:4:in `validate'
+Started GET "/validate" for ::1 at 2020-02-18 12:10:15 +0000
+Processing by ApplicationController#validate as */*
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mProjectManager Load (0.4ms)[0m  [1m[34mSELECT  "project_managers".* FROM "project_managers" WHERE "project_managers"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 500 Internal Server Error in 157090ms (ActiveRecord: 16.2ms)
+
+
+  
+Started GET "/validate" for ::1 at 2020-02-18 12:12:52 +0000
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `validate'
+app/controllers/application_controller.rb:5:in `validate'
+Processing by ApplicationController#validate as */*
+Completed 500 Internal Server Error in 8549ms (ActiveRecord: 0.0ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `validate'
+app/controllers/application_controller.rb:5:in `validate'
+Started GET "/validate" for ::1 at 2020-02-18 12:13:25 +0000
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/matthew/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Processing by ApplicationController#validate as */*
+Completed 500 Internal Server Error in 90544ms (ActiveRecord: 0.0ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `validate'
+app/controllers/application_controller.rb:5:in `validate'
+Started GET "/validate" for ::1 at 2020-02-18 12:16:10 +0000
+Processing by ApplicationController#validate as */*
+Completed 500 Internal Server Error in 200049ms (ActiveRecord: 0.0ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `validate'
+app/controllers/application_controller.rb:5:in `validate'
+Started POST "/register" for ::1 at 2020-02-18 12:20:19 +0000
+Processing by ClientController#create as JSON
+  Parameters: {"client"=>{"first_name"=>"asdasd", "last_name"=>"asdasdas", "email"=>"asdasda", "password"=>"[FILTERED]"}}
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/client_controller.rb:5
+  [1m[36mClient Create (1.7ms)[0m  [1m[32mINSERT INTO "clients" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "asdasd"], ["last_name", "asdasdas"], ["email", "asdasda"], ["password_digest", "$2a$12$7k1GO7G7dwMcAj2u9gvLi.VW.bydI6/e5/Aj9EIzyVfmbZB5Xskw6"], ["created_at", "2020-02-18 12:20:20.158292"], ["updated_at", "2020-02-18 12:20:20.158292"]]
+  ↳ app/controllers/client_controller.rb:5
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/client_controller.rb:5
+Completed 201 Created in 408ms (Views: 7.0ms | ActiveRecord: 19.4ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 12:20:29 +0000
+Processing by ApplicationController#validate as */*
+Completed 500 Internal Server Error in 183385ms (ActiveRecord: 0.0ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `validate'
+app/controllers/application_controller.rb:5:in `validate'
+Started GET "/validate" for ::1 at 2020-02-18 12:23:47 +0000
+Processing by ApplicationController#validate as */*
+  [1m[36mClient Load (2.1ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+Completed 204 No Content in 253ms (ActiveRecord: 15.7ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 12:24:47 +0000
+Processing by ApplicationController#validate as */*
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 500 Internal Server Error in 64593ms (ActiveRecord: 6.3ms)
+
+
+  
+SystemExit (exit):
+  
+Started GET "/validate" for ::1 at 2020-02-18 12:25:53 +0000
+(byebug):1:in `exit'
+(byebug):1:in `validate'
+app/controllers/application_controller.rb:6:in `validate'
+Processing by ApplicationController#validate as */*
+Completed 500 Internal Server Error in 1562ms (ActiveRecord: 0.0ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `validate'
+app/controllers/application_controller.rb:6:in `validate'
+Started GET "/validate" for ::1 at 2020-02-18 12:26:09 +0000
+Processing by ApplicationController#validate as */*
+Completed 500 Internal Server Error in 8946ms (ActiveRecord: 0.0ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `validate'
+app/controllers/application_controller.rb:6:in `validate'
+Started GET "/validate" for ::1 at 2020-02-18 12:27:50 +0000
+Processing by ApplicationController#validate as */*
+  [1m[36mClient Load (4.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+Completed 204 No Content in 197ms (ActiveRecord: 18.1ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 12:28:02 +0000
+Processing by ApplicationController#validate as */*
+  [1m[36mClient Load (1.1ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:13
+Completed 204 No Content in 188ms (ActiveRecord: 12.3ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 12:31:15 +0000
+Processing by ApplicationController#validate as */*
+  [1m[36mClient Load (3.9ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:23
+Completed 200 OK in 199ms (Views: 5.3ms | ActiveRecord: 13.1ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 12:31:19 +0000
+Processing by ApplicationController#validate as */*
+  [1m[36mClient Load (2.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:23
+Completed 200 OK in 49ms (Views: 10.0ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 12:31:21 +0000
+Processing by ApplicationController#validate as */*
+  [1m[36mClient Load (4.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:23
+Completed 200 OK in 52ms (Views: 3.4ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 12:32:02 +0000
+Processing by ApplicationController#validate as */*
+  [1m[36mClient Load (4.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:23
+Completed 200 OK in 203ms (Views: 5.8ms | ActiveRecord: 15.7ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 12:32:06 +0000
+Processing by ApplicationController#validate as */*
+  [1m[36mClient Load (2.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:23
+Completed 200 OK in 51ms (Views: 9.5ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 12:32:07 +0000
+Processing by ApplicationController#validate as */*
+  [1m[36mClient Load (3.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:23
+Completed 200 OK in 78ms (Views: 4.8ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 12:32:09 +0000
+Processing by ApplicationController#validate as */*
+  [1m[36mClient Load (5.5ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:23
+Completed 200 OK in 46ms (Views: 5.8ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 12:33:44 +0000
+Processing by ApplicationController#validate as */*
+  [1m[36mClient Load (1.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:23
+Completed 200 OK in 254ms (Views: 2.0ms | ActiveRecord: 9.1ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 12:33:47 +0000
+Processing by ApplicationController#validate as */*
+  [1m[36mClient Load (12.7ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:23
+Completed 200 OK in 72ms (Views: 8.5ms | ActiveRecord: 12.7ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 12:33:50 +0000
+Processing by ApplicationController#validate as */*
+  [1m[36mClient Load (4.6ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:23
+Completed 200 OK in 50ms (Views: 7.1ms | ActiveRecord: 4.6ms)
+
+
+Started POST "/register/pm" for ::1 at 2020-02-18 12:34:14 +0000
+Processing by ProjectManagerController#create as JSON
+  Parameters: {"project_manager"=>{"first_name"=>"pm", "last_name"=>"pm", "email"=>"pm", "password"=>"[FILTERED]", "company_name"=>"pm"}}
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/project_manager_controller.rb:5
+  [1m[36mProjectManager Create (3.4ms)[0m  [1m[32mINSERT INTO "project_managers" ("first_name", "last_name", "email", "password_digest", "company_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "pm"], ["last_name", "pm"], ["email", "pm"], ["password_digest", "$2a$12$uA3eEdw2aoTudYdOa5EqYO6MNPDattJMDWoUPdfjo5ItvPHi4zU7K"], ["company_name", "pm"], ["created_at", "2020-02-18 12:34:15.119730"], ["updated_at", "2020-02-18 12:34:15.119730"]]
+  ↳ app/controllers/project_manager_controller.rb:5
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/project_manager_controller.rb:5
+Completed 201 Created in 443ms (Views: 10.4ms | ActiveRecord: 14.2ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 12:34:35 +0000
+Processing by ApplicationController#validate as */*
+  [1m[36mProjectManager Load (1.2ms)[0m  [1m[34mSELECT  "project_managers".* FROM "project_managers" WHERE "project_managers"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29
+Completed 500 Internal Server Error in 16891ms (ActiveRecord: 12.6ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `validate'
+app/controllers/application_controller.rb:14:in `validate'
+Started GET "/validate" for ::1 at 2020-02-18 12:35:02 +0000
+Processing by ApplicationController#validate as */*
+  [1m[36mProjectManager Load (1.7ms)[0m  [1m[34mSELECT  "project_managers".* FROM "project_managers" WHERE "project_managers"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29
+Completed 500 Internal Server Error in 11861ms (ActiveRecord: 1.7ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `validate'
+app/controllers/application_controller.rb:14:in `validate'
+Started GET "/validate" for ::1 at 2020-02-18 12:35:20 +0000
+Processing by ApplicationController#validate as */*
+  [1m[36mProjectManager Load (4.2ms)[0m  [1m[34mSELECT  "project_managers".* FROM "project_managers" WHERE "project_managers"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28
+Completed 200 OK in 215ms (Views: 2.1ms | ActiveRecord: 12.1ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 12:35:46 +0000
+Processing by ApplicationController#validate as */*
+  [1m[36mProjectManager Load (1.8ms)[0m  [1m[34mSELECT  "project_managers".* FROM "project_managers" WHERE "project_managers"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28
+Completed 200 OK in 38ms (Views: 4.8ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 12:35:48 +0000
+Processing by ApplicationController#validate as */*
+  [1m[36mProjectManager Load (9.4ms)[0m  [1m[34mSELECT  "project_managers".* FROM "project_managers" WHERE "project_managers"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28
+Completed 200 OK in 72ms (Views: 4.4ms | ActiveRecord: 9.4ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 12:35:51 +0000
+Processing by ApplicationController#validate as */*
+  [1m[36mProjectManager Load (2.3ms)[0m  [1m[34mSELECT  "project_managers".* FROM "project_managers" WHERE "project_managers"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28
+Completed 200 OK in 45ms (Views: 5.6ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 12:35:52 +0000
+Processing by ApplicationController#validate as */*
+  [1m[36mProjectManager Load (2.9ms)[0m  [1m[34mSELECT  "project_managers".* FROM "project_managers" WHERE "project_managers"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28
+Completed 200 OK in 73ms (Views: 4.7ms | ActiveRecord: 2.9ms)
+
+
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (38.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "rev-back_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (32.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "rev-back_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (97.6ms)[0m  [1m[35mCREATE DATABASE "rev-back_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (82.0ms)[0m  [1m[35mCREATE DATABASE "rev-back_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1026369620827876605)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateProjectManagers (20200212144034)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (7.0ms)[0m  [1m[35mCREATE TABLE "project_managers" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "company_name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200212144034_create_project_managers.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200212144034"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateProjects (20200212144041)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "projects" ("id" bigserial primary key, "name" character varying, "max_revisions" integer, "project_manager_id" integer, "client_id" integer, "status" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200212144041_create_projects.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200212144041"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateClients (20200212144047)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "clients" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200212144047_create_clients.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200212144047"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateRevisions (20200212144057)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "revisions" ("id" bigserial primary key, "project_id" integer, "description" character varying, "status" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200212144057_create_revisions.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200212144057"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateComments (20200212144104)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "revision_id" integer, "content" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200212144104_create_comments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200212144104"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-02-18 12:36:22.101364"], ["updated_at", "2020-02-18 12:36:22.101364"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1026369620827876605)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mClient Create (1.0ms)[0m  [1m[32mINSERT INTO "clients" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "John"], ["last_name", "Doe"], ["email", "johndoe@gmail.com"], ["password_digest", "$2a$12$RquodlM4LKk7bmkeEDzvIuVRyqZxoblHRFmG2ABUIEN.s5dO28oge"], ["created_at", "2020-02-18 12:36:29.805236"], ["updated_at", "2020-02-18 12:36:29.805236"]]
+  ↳ db/seeds.rb:8
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mClient Create (0.4ms)[0m  [1m[32mINSERT INTO "clients" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Sergey"], ["last_name", "Dmitriev"], ["email", "sergey.dmitrievb@gmail.com"], ["password_digest", "$2a$12$nGxpYCg7af9IRH6krTmgC.3P3W1goqSiBkJt.vn37brL..1esN9ri"], ["created_at", "2020-02-18 12:36:30.059967"], ["updated_at", "2020-02-18 12:36:30.059967"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mClient Create (0.3ms)[0m  [1m[32mINSERT INTO "clients" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Liza"], ["last_name", "Galminas"], ["email", "liza.galmias@gmail.com"], ["password_digest", "$2a$12$HiVSxko8R84mOE/xIGSl1O.HGBllVCudvrg9M0u4e6Sebj4egRy5O"], ["created_at", "2020-02-18 12:36:30.314151"], ["updated_at", "2020-02-18 12:36:30.314151"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mProjectManager Create (1.0ms)[0m  [1m[32mINSERT INTO "project_managers" ("first_name", "last_name", "email", "password_digest", "company_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Adam"], ["last_name", "Graham"], ["email", "adamg@gmail.com"], ["password_digest", "$2a$12$3HKDd/DbSQXmO19Ui5QxqeNVAfUYVSy3w0Gzdpv9CskcxctR5XaPu"], ["company_name", "Gray Matters"], ["created_at", "2020-02-18 12:36:30.581017"], ["updated_at", "2020-02-18 12:36:30.581017"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mProjectManager Create (0.4ms)[0m  [1m[32mINSERT INTO "project_managers" ("first_name", "last_name", "email", "password_digest", "company_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Matthew"], ["last_name", "Clark"], ["email", "matthew.97.clark@gmail.com"], ["password_digest", "$2a$12$8bUC/0K30YMXGxRq2aqH8./PKgB.JkVkDM/gAZhbaYg1RrLrd34Wm"], ["company_name", "State of Mind"], ["created_at", "2020-02-18 12:36:30.833112"], ["updated_at", "2020-02-18 12:36:30.833112"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:14
+  [1m[36mProjectManager Create (0.4ms)[0m  [1m[32mINSERT INTO "project_managers" ("first_name", "last_name", "email", "password_digest", "company_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "John"], ["last_name", "Fineman"], ["email", "jhonfineman@mattr.com"], ["password_digest", "$2a$12$2UTrRUm5pD2tRRvMgolQBO5GraSfOQKLgZ3UqQ66gQmz9YOmoQ5zu"], ["company_name", "Mattr Media"], ["created_at", "2020-02-18 12:36:31.084322"], ["updated_at", "2020-02-18 12:36:31.084322"]]
+  ↳ db/seeds.rb:14
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:16
+  [1m[36mProject Create (0.7ms)[0m  [1m[32mINSERT INTO "projects" ("name", "max_revisions", "project_manager_id", "client_id", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "New website"], ["max_revisions", 5], ["project_manager_id", 1], ["client_id", 1], ["status", "delivered"], ["created_at", "2020-02-18 12:36:31.102918"], ["updated_at", "2020-02-18 12:36:31.102918"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mProject Create (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("name", "max_revisions", "project_manager_id", "client_id", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "New mobile application"], ["max_revisions", 10], ["project_manager_id", 2], ["client_id", 2], ["status", "in progress"], ["created_at", "2020-02-18 12:36:31.105434"], ["updated_at", "2020-02-18 12:36:31.105434"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:18
+  [1m[36mProject Create (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("name", "max_revisions", "project_manager_id", "client_id", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "rebranding"], ["max_revisions", 15], ["project_manager_id", 3], ["client_id", 3], ["status", "in progress"], ["created_at", "2020-02-18 12:36:31.107205"], ["updated_at", "2020-02-18 12:36:31.107205"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:20
+  [1m[36mRevision Create (0.6ms)[0m  [1m[32mINSERT INTO "revisions" ("project_id", "description", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["project_id", 1], ["description", "Re-design the homepage"], ["status", "completed"], ["created_at", "2020-02-18 12:36:31.119551"], ["updated_at", "2020-02-18 12:36:31.119551"]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:20
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:21
+  [1m[36mRevision Create (0.3ms)[0m  [1m[32mINSERT INTO "revisions" ("project_id", "description", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["project_id", 1], ["description", "Change contact details"], ["status", "in progress"], ["created_at", "2020-02-18 12:36:31.121744"], ["updated_at", "2020-02-18 12:36:31.121744"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:22
+  [1m[36mRevision Create (0.3ms)[0m  [1m[32mINSERT INTO "revisions" ("project_id", "description", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["project_id", 2], ["description", "Make the fonts different everywhere"], ["status", "completed"], ["created_at", "2020-02-18 12:36:31.123225"], ["updated_at", "2020-02-18 12:36:31.123225"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:23
+  [1m[36mRevision Create (0.3ms)[0m  [1m[32mINSERT INTO "revisions" ("project_id", "description", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["project_id", 2], ["description", "Add newsletted signup functionality"], ["status", "in progress"], ["created_at", "2020-02-18 12:36:31.124761"], ["updated_at", "2020-02-18 12:36:31.124761"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mRevision Create (0.3ms)[0m  [1m[32mINSERT INTO "revisions" ("project_id", "description", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["project_id", 3], ["description", "redesign the logo fully"], ["status", "in progress"], ["created_at", "2020-02-18 12:36:31.126341"], ["updated_at", "2020-02-18 12:36:31.126341"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mRevision Create (0.2ms)[0m  [1m[32mINSERT INTO "revisions" ("project_id", "description", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["project_id", 3], ["description", "change the color palette"], ["status", "in progress"], ["created_at", "2020-02-18 12:36:31.127959"], ["updated_at", "2020-02-18 12:36:31.127959"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:27
+  [1m[36mComment Create (0.7ms)[0m  [1m[32mINSERT INTO "comments" ("revision_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["revision_id", 1], ["content", "Change the structure"], ["created_at", "2020-02-18 12:36:31.138497"], ["updated_at", "2020-02-18 12:36:31.138497"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:28
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("revision_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["revision_id", 2], ["content", "Here are the details we need changing"], ["created_at", "2020-02-18 12:36:31.140785"], ["updated_at", "2020-02-18 12:36:31.140785"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:29
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("revision_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["revision_id", 3], ["content", "we were thingking more this font..."], ["created_at", "2020-02-18 12:36:31.142321"], ["updated_at", "2020-02-18 12:36:31.142321"]]
+  ↳ db/seeds.rb:29
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:29
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("revision_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["revision_id", 4], ["content", "we use mailchimp as our newsletter service"], ["created_at", "2020-02-18 12:36:31.143775"], ["updated_at", "2020-02-18 12:36:31.143775"]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:31
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("revision_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["revision_id", 5], ["content", "this logo is completely wrong..."], ["created_at", "2020-02-18 12:36:31.145226"], ["updated_at", "2020-02-18 12:36:31.145226"]]
+  ↳ db/seeds.rb:31
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:31
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:32
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("revision_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["revision_id", 6], ["content", "need some more bright colors in the mix"], ["created_at", "2020-02-18 12:36:31.147193"], ["updated_at", "2020-02-18 12:36:31.147193"]]
+  ↳ db/seeds.rb:32
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:32
+Started POST "/register" for ::1 at 2020-02-18 12:36:54 +0000
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/matthew/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Processing by ClientController#create as JSON
+  Parameters: {"client"=>{"first_name"=>"newUser", "last_name"=>"newUser", "email"=>"newUser", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/client_controller.rb:5
+  [1m[36mClient Create (0.8ms)[0m  [1m[32mINSERT INTO "clients" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "newUser"], ["last_name", "newUser"], ["email", "newUser"], ["password_digest", "$2a$12$4qBP11mlmkcahaD/keNMk.AHW6kA1C5SIMnR5U7T9tbBX8hRGAvV2"], ["created_at", "2020-02-18 12:36:54.735338"], ["updated_at", "2020-02-18 12:36:54.735338"]]
+  ↳ app/controllers/client_controller.rb:5
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/client_controller.rb:5
+Completed 201 Created in 274ms (Views: 0.5ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 12:37:03 +0000
+Processing by ApplicationController#validate as */*
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:23
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 12:37:04 +0000
+Processing by ApplicationController#validate as */*
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:23
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 12:37:06 +0000
+Processing by ApplicationController#validate as */*
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:23
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 12:37:07 +0000
+Processing by ApplicationController#validate as */*
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:23
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/register/pm" for ::1 at 2020-02-18 12:37:34 +0000
+Processing by ProjectManagerController#create as JSON
+  Parameters: {"project_manager"=>{"first_name"=>"newPm", "last_name"=>"newPm", "email"=>"newPm", "password"=>"[FILTERED]", "company_name"=>"newPm"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/project_manager_controller.rb:5
+  [1m[36mProjectManager Create (0.6ms)[0m  [1m[32mINSERT INTO "project_managers" ("first_name", "last_name", "email", "password_digest", "company_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "newPm"], ["last_name", "newPm"], ["email", "newPm"], ["password_digest", "$2a$12$NJ9BrPaW8//HykAGov8N3upCrY/sKSf7CuTcy45HVpdNnWq8Ekb4i"], ["company_name", "newPm"], ["created_at", "2020-02-18 12:37:34.747454"], ["updated_at", "2020-02-18 12:37:34.747454"]]
+  ↳ app/controllers/project_manager_controller.rb:5
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/project_manager_controller.rb:5
+Completed 201 Created in 266ms (Views: 0.3ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 12:37:39 +0000
+Processing by ApplicationController#validate as */*
+  [1m[36mProjectManager Load (0.8ms)[0m  [1m[34mSELECT  "project_managers".* FROM "project_managers" WHERE "project_managers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 12:37:40 +0000
+Processing by ApplicationController#validate as */*
+  [1m[36mProjectManager Load (0.7ms)[0m  [1m[34mSELECT  "project_managers".* FROM "project_managers" WHERE "project_managers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 12:37:42 +0000
+Processing by ApplicationController#validate as */*
+  [1m[36mProjectManager Load (0.4ms)[0m  [1m[34mSELECT  "project_managers".* FROM "project_managers" WHERE "project_managers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-18 12:37:43 +0000
+Processing by ApplicationController#validate as */*
+  [1m[36mProjectManager Load (0.4ms)[0m  [1m[34mSELECT  "project_managers".* FROM "project_managers" WHERE "project_managers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+

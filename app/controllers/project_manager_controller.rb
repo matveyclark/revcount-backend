@@ -3,7 +3,7 @@ class ProjectManagerController < ApplicationController
     def create
         begin
             project_manager = ProjectManager.create(project_manager_params)
-            render json: { status: "success", data: project_manager, user_type: 'pm', token: issue_token({ id: project_manager.id }) }, status: 201
+            render json: { status: "success", data: project_manager, user_type: 'pm', token: issue_token({ id: project_manager.id, user_type: 'pm' }) }, status: 201
         rescue
             render json: { error: "Please enter valid inputs" }, status: 401
         end
@@ -21,7 +21,7 @@ class ProjectManagerController < ApplicationController
     def login
         project_manager = ProjectManager.find_by(email: project_manager_params[:email])
         if project_manager && project_manager.authenticate(project_manager_params[:password]) 
-            render json: { status: "success", email: project_manager.email, user_type: 'pm', token: issue_token({ id: project_manager.id })}, status: 200
+            render json: { status: "success", email: project_manager.email, user_type: 'pm', token: issue_token({ id: project_manager.id, user_type: 'pm' })}, status: 200
         else
             render json: { error: "Please enter the correct login details." }
         end
@@ -42,15 +42,6 @@ class ProjectManagerController < ApplicationController
             render json: project_manager.clients, :except => [:password_digest, :created_at, :updated_at], status: 200
         else
             render json: { error: "You are not authorized to view this page. Please log in."}, status: 401
-        end
-    end
-
-    def validate
-        project_manager = get_current_project_manager
-        if project_manager
-            render json: { status: "success", email: project_manager.email, user_type: 'pm', token: issue_token({ id: project_manager.id })}, status: 200
-        else
-            render json: { error: "You are not authorized to view this page. Please log in." }, status: 401
         end
     end
 
