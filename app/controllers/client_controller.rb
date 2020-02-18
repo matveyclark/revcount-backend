@@ -1,14 +1,5 @@
 class ClientController < ApplicationController
 
-    def create
-        begin
-            client = Client.create(client_params)
-            render json: { status: "success", data: client, user_type: 'client', token: issue_token({ id: client.id ,user_type: 'client' }) }, status: 201
-        rescue
-            render json: { error: "Please enter valid inputs to regsiter." }, status: 401
-        end
-    end
-
     def show
         client = Client.find_by(id: params[:id])
         if client

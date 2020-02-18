@@ -1,6 +1,6 @@
 class Client < ApplicationRecord
-    has_secure_password
-
     has_many :projects
+    belongs_to :user
     has_many :project_managers, through: :projects
+    
 end

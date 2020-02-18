@@ -1,14 +1,5 @@
 class ProjectManagerController < ApplicationController
 
-    def create
-        begin
-            project_manager = ProjectManager.create(project_manager_params)
-            render json: { status: "success", data: project_manager, user_type: 'pm', token: issue_token({ id: project_manager.id, user_type: 'pm' }) }, status: 201
-        rescue
-            render json: { error: "Please enter valid inputs" }, status: 401
-        end
-    end
-
     def show
         begin
             project_manager = ProjectManager.find(params[:id])
