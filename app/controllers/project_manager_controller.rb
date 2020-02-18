@@ -18,15 +18,6 @@ class ProjectManagerController < ApplicationController
         end
     end
 
-    def login
-        project_manager = ProjectManager.find_by(email: project_manager_params[:email])
-        if project_manager && project_manager.authenticate(project_manager_params[:password]) 
-            render json: { status: "success", email: project_manager.email, user_type: 'pm', token: issue_token({ id: project_manager.id, user_type: 'pm' })}, status: 200
-        else
-            render json: { error: "Please enter the correct login details." }
-        end
-    end
-
     def projects
         project_manager = get_current_project_manager
         if project_manager

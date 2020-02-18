@@ -18,6 +18,24 @@ class ApplicationController < ActionController::API
         end
     end
 
+    def login
+        if params.has_key?('client')
+            client = Client.find_by(email: params[:client][:email])
+            if client && client.authenticate(params[:client][:password])
+                render json: { status: "success", user: client.email, user_type: 'client', token: issue_token({ id: client.id, user_type: 'client' })}, status: 200
+            else
+                render json: { error: "Incorrect password or username."}, status: 401
+            end
+        else
+            project_manager = ProjectManager.find_by(email: params[:email])
+            if project_manager && project_manager.authenticate(params[:password]) 
+                render json: { status: "success", email: project_manager.email, user_type: 'pm', token: issue_token({ id: project_manager.id, user_type: 'pm' })}, status: 200
+            else
+                render json: { error: "Please enter the correct login details." }
+            end
+        end
+    end
+
     def get_current_client
         id = decoded_token['id']
         Client.find_by(id: id)

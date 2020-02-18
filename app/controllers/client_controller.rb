@@ -18,15 +18,6 @@ class ClientController < ApplicationController
         end
     end
 
-    def login
-        client = Client.find_by(email: client_params[:email])
-        if client && client.authenticate(client_params[:password])
-            render json: { status: "success", user: client.email, user_type: 'client', token: issue_token({ id: client.id, user_type: 'client' })}, status: 200
-        else
-            render json: { error: "Incorrect password or username."}, status: 401
-        end
-    end
-
     def projects
         client = get_current_client
         if client 
