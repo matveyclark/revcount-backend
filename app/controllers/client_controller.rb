@@ -3,7 +3,7 @@ class ClientController < ApplicationController
     def create
         begin
             client = Client.create(client_params)
-            render json: { status: "success", data: client, token: issue_token({ id: client.id }) }, status: 201
+            render json: { status: "success", data: client, user_type: 'client', token: issue_token({ id: client.id }) }, status: 201
         rescue
             render json: { error: "Please enter valid inputs to regsiter." }, status: 401
         end
@@ -12,7 +12,7 @@ class ClientController < ApplicationController
     def show
         client = Client.find_by(id: params[:id])
         if client
-            render json: { status: "success", data: client }
+            render json: { status: "success", data: client, user_type: 'client', }
         else
             render json: { error: "There is no client with that ID." }
         end
@@ -21,7 +21,7 @@ class ClientController < ApplicationController
     def login
         client = Client.find_by(email: client_params[:email])
         if client && client.authenticate(client_params[:password])
-            render json: { status: "success", user: client.email, token: issue_token({ id: client.id })}, status: 200
+            render json: { status: "success", user: client.email, user_type: 'client', token: issue_token({ id: client.id })}, status: 200
         else
             render json: { error: "Incorrect password or username."}, status: 401
         end
@@ -39,7 +39,7 @@ class ClientController < ApplicationController
     def validate
         client = get_current_client
         if client
-            render json: { status: "success", email: client.email, token: issue_token({ id: client.id })}
+            render json: { status: "success", email: client.email, user_type: 'client', token: issue_token({ id: client.id })}
         else
             render json: { error: "You are not authorized to view this page." }, status: 401
         end
