@@ -24,6 +24,7 @@ pm3 = ProjectManager.create(user: user6)
 project1 = Project.create(name: 'New website', project_manager: pm1, client: client1, status: 'delivered', max_revisions: 5)
 project2 = Project.create(name: 'New mobile application', project_manager: pm2, client: client2, status: 'in progress', max_revisions: 10)
 project3 = Project.create(name: 'rebranding', project_manager: pm3, client: client3, status: 'in progress', max_revisions: 15)
+project4 = Project.create(name: 'test api projects', project_manager: pm2, client: client3, status: 'in progress', max_revisions: 15)
 
 revision1 = Revision.create(project: project1, description: 'Re-design the homepage', status: 'completed')
 revision2 = Revision.create(project: project1, description: 'Change contact details', status: 'in progress')
@@ -31,6 +32,8 @@ revision3 = Revision.create(project: project2, description: 'Make the fonts diff
 revision4 = Revision.create(project: project2, description: 'Add newsletted signup functionality', status: 'in progress')
 revision5 = Revision.create(project: project3, description: 'redesign the logo fully', status: 'in progress')
 revision6 = Revision.create(project: project3, description: 'change the color palette', status: 'in progress')
+revision7 = Revision.create(project: project4, description: 'test1', status: 'in progress')
+revision8 = Revision.create(project: project4, description: 'test2', status: 'in progress')
 
 comment1 = Comment.create(revision: revision1, user: user1, content: 'Change the structure')
 comment3 = Comment.create(revision: revision2, user: user2, content: 'Here are the details we need changing')

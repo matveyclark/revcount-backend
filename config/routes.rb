@@ -6,15 +6,8 @@ Rails.application.routes.draw do
   post '/login' => 'user#login'
   post '/register' => 'user#create'
 
-  # Project Manager routes
-  get '/project-manager/:id' => 'project_manager#show'
-  get '/projects/pm' => 'project_manager#projects'
-  get '/clients/pm' => 'project_manager#clients'
-
-  # Client routes
-  get '/client/:id' => 'client#show'
-  get '/projects' => 'client#projects'
-
-  # Project routes
-  get '/project/revisions' => 'project#revisions'
+  # Projects
+  get '/projects' => 'user#projects'
+  get '/projects/:id' => 'project#show'
+  
 end

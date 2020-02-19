@@ -37,6 +37,19 @@ class UserController < ApplicationController
         end
     end
 
+    def projects
+        user = get_current_user
+        if user
+            if user.clients.length > 0
+                render json: { status: "success", data: user.clients.first.projects }, status: 200
+            else
+                render json: { status: "success", data: user.project_managers.first.projects }, status: 200
+            end
+        else
+            render json: { error: "You are not authorized to view this page. Please log in." }, status: 401
+        end
+    end
+
     private
 
     def user_params
