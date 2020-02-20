@@ -9,5 +9,8 @@ Rails.application.routes.draw do
   # Projects
   get '/projects' => 'user#projects'
   get '/projects/:id' => 'project#show'
+
+  # Revisions
+  post '/revision/new' => 'revision#create'
   
 end
