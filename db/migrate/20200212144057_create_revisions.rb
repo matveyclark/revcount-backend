@@ -3,6 +3,7 @@ class CreateRevisions < ActiveRecord::Migration[5.2]
     create_table :revisions do |t|
       t.integer :project_id
       t.string :description
+      t.string :content
       t.string :status
       t.timestamps
     end

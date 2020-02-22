@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2020_02_18_195229) do
   create_table "revisions", force: :cascade do |t|
     t.integer "project_id"
     t.string "description"
+    t.string "content"
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

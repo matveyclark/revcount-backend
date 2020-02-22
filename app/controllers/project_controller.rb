@@ -5,10 +5,11 @@ class ProjectController < ApplicationController
         project_manager = get_current_user.project_managers.first
         project = Project.new(name: project_params[:name], max_revisions: project_params[:max_revisions])
         if client == nil
-            UserMailer.welcome_email(project_params[:email]).deliver_later
-            render json: { message: "Email sent" }, status: 200
+            UserMailer.welcome_email(project_params[:email], project_manager).deliver_later
+            render json: { message: "Email sent", status: "success", project: project }, status: 200
         else
-            project[:client_id] = client.id.to_s
+            client = client.clients.first
+            project[:client_id] = client.id
             project[:project_manager_id] = project_manager.id
             project[:status] = 'in progress'
             project.save

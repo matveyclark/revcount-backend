@@ -1,6 +1,7 @@
-<h1>Welcome to example.com</h1>
-  <p>
-    You have successfully signed up to example.com,
-    your username is: matthew clark <br>
-  </p>
-<p>Thanks for joining and have a great day!</p>
+<div style="width: 90%; margin:0 auto; text-align: center;">
+  <h1 style="color: #6534ff"> <%= @pm.user.first_name %> has invited you to join RevCount</h1>
+    <p>
+       <a href="http://localhost:3001/register" style="padding: .5em 2em; background-color: green; color: #fff; cursor: pointer; ">Create Account</a>
+    </p>
+  <p>We hope you enjoy using <span style="color: #6534ff;">Rev</span>Count!</p>
+</div>
