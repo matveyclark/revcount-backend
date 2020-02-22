@@ -5,7 +5,7 @@ class ProjectController < ApplicationController
         project_manager = get_current_user.project_managers.first
         project = Project.new(name: project_params[:name], max_revisions: project_params[:max_revisions])
         if client == nil
-            UserMailer.welcome_email(project_params[:email]).deliver
+            UserMailer.welcome_email(project_params[:email]).deliver_later
             render json: { message: "Email sent" }, status: 200
         else
             project[:client_id] = client.id.to_s

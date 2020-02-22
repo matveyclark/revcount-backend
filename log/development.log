@@ -39129,3 +39129,339 @@ Content-Transfer-Encoding: 7bit
 Completed 200 OK in 1296ms (Views: 0.3ms | ActiveRecord: 0.8ms)
 
 
+Started GET "/validate" for ::1 at 2020-02-22 15:06:27 +0000
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/matthew/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Processing by UserController#validate as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/user_controller.rb:30
+Completed 200 OK in 30ms (Views: 0.2ms | ActiveRecord: 9.7ms)
+
+
+Started GET "/projects/" for ::1 at 2020-02-22 15:06:27 +0000
+Processing by UserController#projects as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/user_controller.rb:43
+  [1m[36mProjectManager Load (0.4ms)[0m  [1m[34mSELECT  "project_managers".* FROM "project_managers" WHERE "project_managers"."user_id" = $1 ORDER BY "project_managers"."id" ASC LIMIT $2[0m  [["user_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:46
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."project_manager_id" = $1[0m  [["project_manager_id", 2]]
+  ↳ app/controllers/user_controller.rb:46
+Completed 200 OK in 37ms (Views: 9.6ms | ActiveRecord: 11.8ms)
+
+
+Started POST "/project/new" for ::1 at 2020-02-22 15:06:43 +0000
+Processing by ProjectController#create as JSON
+  Parameters: {"project"=>{"name"=>"test", "max_revisions"=>"123123", "email"=>"matthew.97.clark@gmail.com"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "matthew.97.clark@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/project_controller.rb:4
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mProjectManager Load (0.2ms)[0m  [1m[34mSELECT  "project_managers".* FROM "project_managers" WHERE "project_managers"."user_id" = $1 ORDER BY "project_managers"."id" ASC LIMIT $2[0m  [["user_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/project_controller.rb:5
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/project_controller.rb:14
+  [1m[36mClient Load (0.2ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/project_controller.rb:14
+  [1m[36mProjectManager Load (0.2ms)[0m  [1m[34mSELECT  "project_managers".* FROM "project_managers" WHERE "project_managers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/project_controller.rb:14
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/project_controller.rb:14
+Completed 200 OK in 13ms (Views: 0.3ms | ActiveRecord: 4.2ms)
+
+
+Started POST "/project/new" for ::1 at 2020-02-22 15:08:21 +0000
+Processing by ProjectController#create as JSON
+  Parameters: {"project"=>{"name"=>"test", "max_revisions"=>"123123", "email"=>"matvei.clark@gmail.com"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "matvei.clark@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/project_controller.rb:4
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mProjectManager Load (0.4ms)[0m  [1m[34mSELECT  "project_managers".* FROM "project_managers" WHERE "project_managers"."user_id" = $1 ORDER BY "project_managers"."id" ASC LIMIT $2[0m  [["user_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/project_controller.rb:5
+  Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (0.5ms)
+  Rendering user_mailer/welcome_email.text.erb within layouts/mailer
+  Rendered user_mailer/welcome_email.text.erb within layouts/mailer (0.2ms)
+UserMailer#welcome_email: processed outbound mail in 38.5ms
+Sent mail to matvei.clark@gmail.com (1149.5ms)
+Date: Sat, 22 Feb 2020 15:08:21 +0000
+From: revcountplatform@gmail.com
+To: matvei.clark@gmail.com
+Message-ID: <5e5143e54652f_ff7a3fd57ecd22cc468b3@Matthews-MacBook-Pro.local.mail>
+Subject: PM has invited you to join RevCount
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5e5143e545c3b_ff7a3fd57ecd22cc467c9";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5e5143e545c3b_ff7a3fd57ecd22cc467c9
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Welcome to example.com
+===============================================
+You have successfully signed up to example.com,
+your username is:.
+Thanks for joining and have a great day
+
+----==_mimepart_5e5143e545c3b_ff7a3fd57ecd22cc467c9
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Welcome to example.com</h1>
+  <p>
+    You have successfully signed up to example.com,
+    your username is: matthew clark <br>
+  </p>
+<p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+----==_mimepart_5e5143e545c3b_ff7a3fd57ecd22cc467c9--
+
+Completed 200 OK in 1246ms (Views: 0.2ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-22 15:08:47 +0000
+Processing by UserController#validate as */*
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/user_controller.rb:30
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/projects/" for ::1 at 2020-02-22 15:08:47 +0000
+Processing by UserController#projects as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mClient Load (2.2ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/user_controller.rb:43
+  [1m[36mProjectManager Load (4.0ms)[0m  [1m[34mSELECT  "project_managers".* FROM "project_managers" WHERE "project_managers"."user_id" = $1 ORDER BY "project_managers"."id" ASC LIMIT $2[0m  [["user_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:46
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."project_manager_id" = $1[0m  [["project_manager_id", 2]]
+  ↳ app/controllers/user_controller.rb:46
+Completed 200 OK in 14ms (Views: 2.8ms | ActiveRecord: 7.3ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-22 15:08:48 +0000
+Processing by UserController#validate as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mClient Load (23.1ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/user_controller.rb:30
+Completed 200 OK in 27ms (Views: 0.2ms | ActiveRecord: 23.4ms)
+
+
+Started GET "/projects/" for ::1 at 2020-02-22 15:08:48 +0000
+Processing by UserController#projects as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/user_controller.rb:43
+  [1m[36mProjectManager Load (0.7ms)[0m  [1m[34mSELECT  "project_managers".* FROM "project_managers" WHERE "project_managers"."user_id" = $1 ORDER BY "project_managers"."id" ASC LIMIT $2[0m  [["user_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:46
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."project_manager_id" = $1[0m  [["project_manager_id", 2]]
+  ↳ app/controllers/user_controller.rb:46
+Completed 200 OK in 7ms (Views: 3.0ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/project/new" for ::1 at 2020-02-22 15:08:58 +0000
+Processing by ProjectController#create as JSON
+  Parameters: {"project"=>{"name"=>"asdasd", "max_revisions"=>"123123", "email"=>"matvei.clark@gmail.com"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "matvei.clark@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/project_controller.rb:4
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mProjectManager Load (0.3ms)[0m  [1m[34mSELECT  "project_managers".* FROM "project_managers" WHERE "project_managers"."user_id" = $1 ORDER BY "project_managers"."id" ASC LIMIT $2[0m  [["user_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/project_controller.rb:5
+  Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (0.2ms)
+  Rendering user_mailer/welcome_email.text.erb within layouts/mailer
+  Rendered user_mailer/welcome_email.text.erb within layouts/mailer (0.2ms)
+UserMailer#welcome_email: processed outbound mail in 6.5ms
+Sent mail to matvei.clark@gmail.com (983.5ms)
+Date: Sat, 22 Feb 2020 15:08:58 +0000
+From: revcountplatform@gmail.com
+To: matvei.clark@gmail.com
+Message-ID: <5e51440a2ef5c_ff7a3fd57ecd25244703a@Matthews-MacBook-Pro.local.mail>
+Subject: PM has invited you to join RevCount
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5e51440a2ea35_ff7a3fd57ecd252446915";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5e51440a2ea35_ff7a3fd57ecd252446915
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Welcome to example.com
+===============================================
+You have successfully signed up to example.com,
+your username is:.
+Thanks for joining and have a great day
+
+----==_mimepart_5e51440a2ea35_ff7a3fd57ecd252446915
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Welcome to example.com</h1>
+  <p>
+    You have successfully signed up to example.com,
+    your username is: matthew clark <br>
+  </p>
+<p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+----==_mimepart_5e51440a2ea35_ff7a3fd57ecd252446915--
+
+Completed 200 OK in 994ms (Views: 0.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-22 15:09:19 +0000
+Processing by UserController#validate as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/user_controller.rb:30
+Completed 200 OK in 35ms (Views: 0.3ms | ActiveRecord: 12.9ms)
+
+
+Started GET "/projects/" for ::1 at 2020-02-22 15:09:19 +0000
+Processing by UserController#projects as */*
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mClient Load (1.7ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/user_controller.rb:43
+  [1m[36mProjectManager Load (0.3ms)[0m  [1m[34mSELECT  "project_managers".* FROM "project_managers" WHERE "project_managers"."user_id" = $1 ORDER BY "project_managers"."id" ASC LIMIT $2[0m  [["user_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:46
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."project_manager_id" = $1[0m  [["project_manager_id", 2]]
+  ↳ app/controllers/user_controller.rb:46
+Completed 200 OK in 59ms (Views: 9.5ms | ActiveRecord: 32.5ms)
+
+
+Started GET "/validate" for ::1 at 2020-02-22 15:09:25 +0000
+Processing by UserController#validate as */*
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mClient Load (0.9ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/user_controller.rb:30
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/projects/" for ::1 at 2020-02-22 15:09:25 +0000
+Processing by UserController#projects as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mClient Load (0.6ms)[0m  [1m[34mSELECT "clients".* FROM "clients" WHERE "clients"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/user_controller.rb:43
+  [1m[36mProjectManager Load (4.0ms)[0m  [1m[34mSELECT  "project_managers".* FROM "project_managers" WHERE "project_managers"."user_id" = $1 ORDER BY "project_managers"."id" ASC LIMIT $2[0m  [["user_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:46
+  [1m[36mProject Load (16.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."project_manager_id" = $1[0m  [["project_manager_id", 2]]
+  ↳ app/controllers/user_controller.rb:46
+Completed 200 OK in 29ms (Views: 3.4ms | ActiveRecord: 21.3ms)
+
+
+Started POST "/project/new" for ::1 at 2020-02-22 15:09:34 +0000
+Processing by ProjectController#create as JSON
+  Parameters: {"project"=>{"name"=>"hello", "max_revisions"=>"123", "email"=>"matvei.clark@gmail.com"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "matvei.clark@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/project_controller.rb:4
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mProjectManager Load (0.2ms)[0m  [1m[34mSELECT  "project_managers".* FROM "project_managers" WHERE "project_managers"."user_id" = $1 ORDER BY "project_managers"."id" ASC LIMIT $2[0m  [["user_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/project_controller.rb:5
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: 11e616aa-1969-4731-8810-0fd4faed84ba) to Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", "matvei.clark@gmail.com"
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 0.7ms)
+
+
+[ActiveJob] [ActionMailer::DeliveryJob] [11e616aa-1969-4731-8810-0fd4faed84ba] Performing ActionMailer::DeliveryJob (Job ID: 11e616aa-1969-4731-8810-0fd4faed84ba) from Async(mailers) with arguments: "UserMailer", "welcome_email", "deliver_now", "matvei.clark@gmail.com"
+[ActiveJob] [ActionMailer::DeliveryJob] [11e616aa-1969-4731-8810-0fd4faed84ba]   Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+[ActiveJob] [ActionMailer::DeliveryJob] [11e616aa-1969-4731-8810-0fd4faed84ba]   Rendered user_mailer/welcome_email.html.erb within layouts/mailer (0.5ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [11e616aa-1969-4731-8810-0fd4faed84ba]   Rendering user_mailer/welcome_email.text.erb within layouts/mailer
+[ActiveJob] [ActionMailer::DeliveryJob] [11e616aa-1969-4731-8810-0fd4faed84ba]   Rendered user_mailer/welcome_email.text.erb within layouts/mailer (0.4ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [11e616aa-1969-4731-8810-0fd4faed84ba] UserMailer#welcome_email: processed outbound mail in 9.1ms
+[ActiveJob] [ActionMailer::DeliveryJob] [11e616aa-1969-4731-8810-0fd4faed84ba] Sent mail to matvei.clark@gmail.com (1037.7ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [11e616aa-1969-4731-8810-0fd4faed84ba] Date: Sat, 22 Feb 2020 15:09:34 +0000
+From: revcountplatform@gmail.com
+To: matvei.clark@gmail.com
+Message-ID: <5e51442ea431a_ff7a3fd57eddc6f447278@Matthews-MacBook-Pro.local.mail>
+Subject: PM has invited you to join RevCount
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5e51442ea3c61_ff7a3fd57eddc6f447151";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5e51442ea3c61_ff7a3fd57eddc6f447151
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Welcome to example.com
+===============================================
+You have successfully signed up to example.com,
+your username is:.
+Thanks for joining and have a great day
+
+----==_mimepart_5e51442ea3c61_ff7a3fd57eddc6f447151
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Welcome to example.com</h1>
+  <p>
+    You have successfully signed up to example.com,
+    your username is: matthew clark <br>
+  </p>
+<p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+----==_mimepart_5e51442ea3c61_ff7a3fd57eddc6f447151--
+
+[ActiveJob] [ActionMailer::DeliveryJob] [11e616aa-1969-4731-8810-0fd4faed84ba] Performed ActionMailer::DeliveryJob (Job ID: 11e616aa-1969-4731-8810-0fd4faed84ba) from Async(mailers) in 1048.86ms
