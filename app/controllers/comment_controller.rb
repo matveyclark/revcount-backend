@@ -22,10 +22,10 @@ class CommentController < ApplicationController
     def create
         user = User.find_by(email: comment_params[:user])
         comment = Comment.create(content: comment_params[:content], revision_id: comment_params[:revision_id], user_id: user.id)
-        if comment
-            render json: { status: "success", data: comment.content, user: user.first_name}, status: 200 
+        if comment && user.clients.length > 0
+            render json: { status: "success", data: comment.content, user: user.first_name, user_type: 'client' }, status: 200 
         else
-            render json: { error: "Something went wrong..." }, status: 401
+            render json: { status: "success", data: comment.content, user: user.first_name, user_type: 'pm' }, status: 200
         end
     end
 
