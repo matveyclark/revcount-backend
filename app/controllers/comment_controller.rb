@@ -2,8 +2,12 @@ class CommentController < ApplicationController
 
     def index
         revision = Revision.find_by(id: params[:id])
+        comments = []
+        revision.comments.each do |comment| 
+            comments.push(commentHash = { content: comment.content, user: comment.user.first_name})
+        end
         if revision
-            render json: { status: "success", comments: revision.comments }, status: 200
+            render json: { status: "success", comments: comments }, status: 200
         else
             render json: { error: "An error has occured" }, status: 401
         end
@@ -13,7 +17,7 @@ class CommentController < ApplicationController
         user = User.find_by(email: comment_params[:user])
         comment = Comment.create(content: comment_params[:content], revision_id: comment_params[:revision_id], user_id: user.id)
         if comment
-            render json: { status: "success", data: comment }, status: 200
+            render json: { status: "success", data: comment.content, user: user.first_name}, status: 200 
         else
             render json: { error: "Something went wrong..." }, status: 401
         end
