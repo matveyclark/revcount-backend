@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/projects' => 'user#projects'
   get '/projects/:id' => 'project#show'
   post '/project/new' => 'project#create'
+  post '/project/invite' => 'project#invite'
 
   # Revisions
   post '/revision/new' => 'revision#create'
