@@ -4,9 +4,15 @@ class CommentController < ApplicationController
         revision = Revision.find_by(id: params[:id])
         comments = []
         revision.comments.each do |comment| 
-            comments.push(commentHash = { content: comment.content, user: comment.user.first_name})
+           commentHash = { content: comment.content, user: comment.user.first_name }
+           if comment.user.clients.length > 0
+                commentHash[:user_type] = 'client'
+           else 
+                commentHash[:user_type] = 'pm'
+           end
+           comments.push(commentHash)
         end
-        if revision
+        if revision 
             render json: { status: "success", comments: comments }, status: 200
         else
             render json: { error: "An error has occured" }, status: 401
