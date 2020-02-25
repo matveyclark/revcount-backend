@@ -2,6 +2,9 @@ class ProjectController < ApplicationController
 
     def create
         client = User.find_by(email: project_params[:email])
+        if client == nil
+            return render json: { error: 'Please enter a valid user email.' }, status: 401
+        end
         project_manager = get_current_user.project_managers.first
         project = Project.new(name: project_params[:name], max_revisions: project_params[:max_revisions])
         client = client.clients.first
