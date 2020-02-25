@@ -33,10 +33,4 @@ class CommentController < ApplicationController
             render json: { status: "success", data: comment.content, user: user.first_name, user_type: 'pm' }, status: 200
         end
     end
-
-    private
-
-    # def comment_params
-    #     params.require(:comment).permit(:content, :revision_id, :user, :screenshot)
-    # end
 end

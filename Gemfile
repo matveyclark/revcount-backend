@@ -48,4 +48,4 @@ gem 'jwt'
 
 gem 'figaro'
 
-gem 'aws-sdk-s3'
+gem "aws-sdk-s3", require: false
