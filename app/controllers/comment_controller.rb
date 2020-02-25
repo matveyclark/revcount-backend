@@ -20,8 +20,9 @@ class CommentController < ApplicationController
     end
 
     def create
-        user = User.find_by(email: comment_params[:user])
-        comment = Comment.create(content: comment_params[:content], revision_id: comment_params[:revision_id], user_id: user.id)
+        user = User.find_by(email: params[:email])
+        comment = Comment.create(content: params[:content], revision_id: params[:revision], user_id: user.id, screenshot: params[:screenshot])
+        byebug
         if comment && user.clients.length > 0
             render json: { status: "success", data: comment.content, user: user.first_name, user_type: 'client' }, status: 200 
         else
@@ -31,7 +32,7 @@ class CommentController < ApplicationController
 
     private
 
-    def comment_params
-        params.require(:comment).permit(:content, :revision_id, :user)
-    end
+    # def comment_params
+    #     params.require(:comment).permit(:content, :revision_id, :user, :screenshot)
+    # end
 end
