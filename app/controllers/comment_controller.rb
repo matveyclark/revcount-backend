@@ -4,7 +4,7 @@ class CommentController < ApplicationController
         revision = Revision.find_by(id: params[:id])
         comments = []
         revision.comments.each do |comment| 
-           commentHash = { content: comment.content, user: comment.user.first_name }
+           commentHash = { content: comment.content, user: comment.user.first_name, screenshot: comment.screenshot.attached? }
            if comment.user.clients.length > 0
                 commentHash[:user_type] = 'client'
            else 
@@ -28,9 +28,9 @@ class CommentController < ApplicationController
             comment = Comment.create(content: params[:content], revision_id: params[:revision],user_id: user.id)
         end
         if comment && user.clients.length > 0
-            render json: { status: "success", data: comment.content, user: user.first_name, user_type: 'client' }, status: 200 
+            render json: { status: "success", data: comment.content, user: user.first_name, user_type: 'client', screenshot: comment.screenshot.attached? }, status: 200 
         else
-            render json: { status: "success", data: comment.content, user: user.first_name, user_type: 'pm' }, status: 200
+            render json: { status: "success", data: comment.content, user: user.first_name, user_type: 'pm', screenshot: comment.screenshot.attached? }, status: 200
         end
     end
 end
