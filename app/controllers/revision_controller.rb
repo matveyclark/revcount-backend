@@ -11,10 +11,20 @@ class RevisionController < ApplicationController
         end
     end
 
+    def update
+        revision = Revision.find_by(id: params[:id])
+        revision.update(status: revision_params[:status])
+        if revision
+            render json: { status: "success", data: revision }, status: 200
+        else
+            render json: { error: "Revision did not update" }, status: 404
+        end
+    end
+
     private
 
     def revision_params
-        params.required(:revision).permit(:description, :project_id)
+        params.required(:revision).permit(:description, :project_id, :status)
     end
 
 end

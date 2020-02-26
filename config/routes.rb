@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   # Revisions
   post '/revision/new' => 'revision#create'
+  patch '/revision/:id' => 'revision#update'
   
   # Comments
   get '/revision/:id/comments' => 'comment#index'
