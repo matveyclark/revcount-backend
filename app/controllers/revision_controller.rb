@@ -4,10 +4,14 @@ class RevisionController < ApplicationController
         revision = Revision.new(revision_params)
         revision[:status] = 'in progress'
         revision.save
-        if revision
-            render json: { status: revision.status, created_at: revision.created_at, updated_at: revision.updated_at, description: revision.description, id: revision.id }, status: 200
+        if revision.valid? 
+            if revision
+                render json: { status: revision.status, created_at: revision.created_at, updated_at: revision.updated_at, description: revision.description, id: revision.id }, status: 200
+            else
+                render json: { error: "Something went wrong..." }, status: 401
+            end
         else
-            render json: { error: "Something went wrong..." }, status: 401
+            render json: { error: revision.errors.full_messages }, status: 401
         end
     end
 

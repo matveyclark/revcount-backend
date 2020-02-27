@@ -27,10 +27,14 @@ class CommentController < ApplicationController
         else
             comment = Comment.create(content: params[:content], revision_id: params[:revision],user_id: user.id)
         end
-        if comment && user.clients.length > 0
-            render json: { status: "success", data: comment.content, user: user.first_name, user_type: 'client', screenshot: comment.screenshot.attached? }, status: 200 
+        if comment.valid? 
+            if comment && user.clients.length > 0
+                render json: { status: "success", data: comment.content, user: user.first_name, user_type: 'client', screenshot: comment.screenshot.attached? }, status: 200 
+            else
+                render json: { status: "success", data: comment.content, user: user.first_name, user_type: 'pm', screenshot: comment.screenshot.attached? }, status: 200
+            end
         else
-            render json: { status: "success", data: comment.content, user: user.first_name, user_type: 'pm', screenshot: comment.screenshot.attached? }, status: 200
+            render json: { error: comment.errors.full_messages }, status: 401
         end
     end
 end
