@@ -6,7 +6,7 @@ class RevisionController < ApplicationController
         revision.save
         if revision.valid? 
             if revision
-                render json: { status: revision.status, created_at: revision.created_at, updated_at: revision.updated_at, description: revision.description, id: revision.id }, status: 200
+                render json: { status: revision.status, created_at: revision.created_at, updated_at: revision.updated_at, description: revision.description, id: revision.id, content: revision.content }, status: 200
             else
                 render json: { error: "Something went wrong..." }, status: 401
             end
@@ -28,7 +28,7 @@ class RevisionController < ApplicationController
     private
 
     def revision_params
-        params.required(:revision).permit(:description, :project_id, :status)
+        params.required(:revision).permit(:description, :project_id, :status, :content)
     end
 
 end
