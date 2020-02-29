@@ -5,10 +5,12 @@ class CommentController < ApplicationController
         comments = []
         revision.comments.each do |comment| 
            commentHash = { content: comment.content, user: comment.user.first_name, screenshot: comment.screenshot.attached? }
-           if comment.user.clients.length > 0
+           if comment.user.clients.length > 0 && comment.screenshot.attached?
                 commentHash[:user_type] = 'client'
-           else 
+                commentHash[:screenshot_url] = comment.screenshot.service_url
+           elsif comment.user.project_managers.length > 0 && comment.screenshot.attached? 
                 commentHash[:user_type] = 'pm'
+                commentHash[:screenshot_url] = comment.screenshot.service_url
            end
            comments.push(commentHash)
         end
@@ -28,10 +30,14 @@ class CommentController < ApplicationController
             comment = Comment.create(content: params[:content], revision_id: params[:revision],user_id: user.id)
         end
         if comment.valid?
-            if comment && user.clients.length > 0
+            if comment && user.clients.length > 0 && comment.screenshot.attached?
                 render json: { status: "success", data: comment.content, user: user.first_name, user_type: 'client', screenshot: comment.screenshot.attached?, screenshot_url: comment.screenshot.service_url }, status: 200 
-            else
+            elsif comment && user.project_managers.length > 0 && comment.screenshot.attached?
                 render json: { status: "success", data: comment.content, user: user.first_name, user_type: 'pm', screenshot: comment.screenshot.attached?, screenshot_url: comment.screenshot.service_url }, status: 200
+            elsif comment && user.clients.length > 0
+                render json: { status: "success", data: comment.content, user: user.first_name, user_type: 'client', screenshot: comment.screenshot.attached? }, status: 200
+            elsif comment && user.project_managers.length > 0 
+                render json: { status: "success", data: comment.content, user: user.first_name, user_type: 'pm', screenshot: comment.screenshot.attached? }, status: 200
             end
         else
             render json: { error: comment.errors.full_messages }, status: 401
