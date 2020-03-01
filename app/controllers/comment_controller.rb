@@ -11,6 +11,10 @@ class CommentController < ApplicationController
            elsif comment.user.project_managers.length > 0 && comment.screenshot.attached? 
                 commentHash[:user_type] = 'pm'
                 commentHash[:screenshot_url] = comment.screenshot.service_url
+           elsif comment.user.clients.length > 0
+                commentHash[:user_type] = 'client'
+           elsif comment.user.project_managers.length > 0
+                commentHash[:user_type] = 'pm'
            end
            comments.push(commentHash)
         end
